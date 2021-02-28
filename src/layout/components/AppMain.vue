@@ -1,5 +1,5 @@
 <template>
-  <section class="app-main">
+  <section :class="{'app-main': key !== '/dashboard'}">
     <transition name="fade-transform" mode="out-in">
       <router-view :key="key" />
     </transition>
@@ -18,16 +18,22 @@ export default {
 </script>
 
 <style scoped>
-.app-main {
-  /*50 = navbar  */
-  min-height: calc(100vh - 50px);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-.fixed-header+.app-main {
-  padding-top: 50px;
-}
+  .app-main {
+    /*50 = navbar  */
+    min-height: calc(100vh - 66px);
+    position: relative;
+    overflow-y: scroll;
+    background: #fff;
+    margin: 15px 30px 0 15px;
+    position: relative;
+    border-top: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    border-radius: 4px;
+  }
+  .fixed-header+.app-main {
+    padding-top: 50px;
+  }
 </style>
 
 <style lang="scss">

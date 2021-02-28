@@ -159,6 +159,27 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/settings',
+    component: Layout,
+    redirect: '/settings/product',
+    name: 'Settings',
+    meta: { title: '店铺设置', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'product',
+        name: 'Product',
+        component: () => import('@/views/settings/product'),
+        meta: { title: '项目设置', icon: 'table' }
+      },
+      {
+        path: 'tree',
+        name: 'Tree',
+        component: () => import('@/views/tree/index'),
+        meta: { title: 'Tree', icon: 'tree' }
+      }
+    ]
+  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

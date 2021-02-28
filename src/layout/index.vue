@@ -1,8 +1,8 @@
 <template>
   <div :class="classObj" class="app-wrapper">
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container" />
-    <div class="main-container">
+    <sidebar class="sidebar-container" v-show="pageName !== 'Dashboard'" />
+    <div class="main-container" :class="{'noMargin': pageName == 'Dashboard'}">
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
       </div>
@@ -40,6 +40,9 @@ export default {
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === 'mobile'
       }
+    },
+    pageName() {
+      return this.$route.name
     }
   },
   methods: {
@@ -89,5 +92,9 @@ export default {
 
   .mobile .fixed-header {
     width: 100%;
+  }
+
+  .noMargin {
+    margin: 0 !important;
   }
 </style>

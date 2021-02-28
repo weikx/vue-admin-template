@@ -47,3 +47,80 @@
 .el-range-separator {
   box-sizing: content-box;
 }
+
+// 设置表格边框符合设计稿要求
+.el-table th.is-leaf {
+  border-bottom: 2px solid #E7E7E7;
+}
+.el-table--border th {
+  border-right: 2px solid #E7E7E7;
+}
+.el-table--border {
+  border: 2px solid #E7E7E7;
+}
+.el-table--border td {
+  border-right: 2px solid #E7E7E7;
+}
+.el-table--border td {
+  border-bottom: 2px solid #E7E7E7;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover>td {
+  background-color: #F3F5F7;
+}
+.el-input-number {
+  width: 90px;
+  height: 30px;
+}
+
+.el-input-number .el-input {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+.el-input-number .el-input-number__decrease {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  border: 2px solid #3296FA;
+  text-align: center;
+  color: #3296FA;
+}
+.el-input-number .el-input-number__increase {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background: #3296FA;
+  color: #fff;
+  text-align: center;
+}
+.el-input-number .el-input__inner {
+  border: none;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
+  background: transparent;
+}
+// 按照设计要求魔改element
+.app-container {
+  padding: 20px;
+  .el-dialog__header {
+    background-color: #1890ff;
+    .el-dialog__title {
+      color: #fff;
+    }
+    .el-dialog__close {
+      color: #fff;
+    }
+  }
+  .pagination-container {
+    background: #fff;
+    padding: 32px 16px;
+  }
+}
+.el-dialog__body .el-input,.el-input--suffix{
+  width: 180px;
+}

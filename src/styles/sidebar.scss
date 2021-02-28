@@ -19,6 +19,7 @@
     left: 0;
     z-index: 1001;
     overflow: hidden;
+    box-shadow: 3px 2px 8px 0px rgba(153, 153, 153, 0.4);
 
     // reset element-ui css
     .horizontal-collapse-transition {
@@ -77,6 +78,7 @@
     }
 
     .is-active>.el-submenu__title {
+      background-color: $menuHover !important;
       color: $subMenuActiveText !important;
     }
 

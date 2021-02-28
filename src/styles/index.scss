@@ -23,12 +23,13 @@ html {
 
 #app {
   height: 100%;
+  background: #f3f5f7;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 a:focus,
@@ -62,4 +63,15 @@ div:focus {
 // main-container global css
 .app-container {
   padding: 20px;
+}
+
+.page-wrapper {
+  background: #fff;
+  height: 100%;
+}
+.filter-container {
+  border-bottom: 1px solid #e7e7e7;
+  .el-input {
+    width: 100px;
+  }
 }

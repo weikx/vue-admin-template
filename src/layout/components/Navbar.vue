@@ -1,8 +1,17 @@
 <template>
   <div class="navbar">
-    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <hamburger v-show="pageName !== 'Dashboard'" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
-    <breadcrumb class="breadcrumb-container" />
+    <!-- <breadcrumb class="breadcrumb-container" /> -->
+
+    <div class="nav-controller">
+      <router-link tag="div" to="/dashboard" class="nav-item" :class="{'nav-active': activeClass('dashboard')}">收银开单</router-link>
+      <router-link tag="div" to="/example" class="nav-item" :class="{'nav-active': activeClass('example')}">业绩报表</router-link>
+      <router-link tag="div" to="/settings" class="nav-item" :class="{'nav-active': activeClass('settings')}">店铺设置</router-link>
+      <router-link tag="div" to="/example" class="nav-item" :class="{'nav-active': activeClass('example1')}">业绩报表</router-link>
+      <router-link tag="div" to="/example" class="nav-item" :class="{'nav-active': activeClass('example2')}">业绩报表</router-link>
+      <router-link tag="div" to="/example" class="nav-item" :class="{'nav-active': activeClass('example3')}">业绩报表</router-link>
+    </div>
 
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
@@ -45,7 +54,10 @@ export default {
     ...mapGetters([
       'sidebar',
       'avatar'
-    ])
+    ]),
+    pageName() {
+      return this.$route.name
+    }
   },
   methods: {
     toggleSideBar() {
@@ -54,6 +66,9 @@ export default {
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
+    activeClass (rootPath) {
+      return this.$route.path.includes(rootPath)
     }
   }
 }
@@ -64,9 +79,13 @@ export default {
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #fff;
+  background: #3296FA;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
-
+  color: #fff;
+  .nav-active {
+    background: #fff;
+    color: #3296FA;
+  }
   .hamburger-container {
     line-height: 46px;
     height: 100%;
@@ -133,6 +152,25 @@ export default {
           font-size: 12px;
         }
       }
+    }
+  }
+}
+
+.nav-controller {
+  margin: 0 auto;
+  display: flex;
+  width: 700px;
+  line-height: 50px;
+  justify-content: center;
+  text-align: center;
+  .nav-item {
+    padding: 0 20px;
+    transition: all .3s;
+    margin-left: 2px;
+    cursor: pointer;
+    &:hover {
+      color: #3296FA;
+      background: #fff;
     }
   }
 }
